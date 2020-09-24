@@ -1,15 +1,20 @@
+/*
+Biphase-S decoding for DIGDACM Project Term 3 2020
+Made by Hans Ongsitco
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 
 int main(){
-	char input;
-	int last=-1;//previous value, initialized as 0
+	char input='0';
+	int last=-1;//previous value of Encoded Biphase-S, initialized as 0
 	
+	//Bi-phase-S encoding algorithm
 	do{
 		input=fgetc(stdin);//gets a character from the input stream
-		if(input=='0'){//biphase s encoder
+		if(input=='0'){
 			if(last==1){
 				printf("-1+1");
 				last=1;
@@ -30,7 +35,7 @@ int main(){
 				last=-1;
 			}
 		}
-	}while(input!='\n');
-	printf("\n");//new line to signify end of bit stream
+	}while(input!=EOF);
+
 	return 0;
 }
