@@ -9,17 +9,17 @@ Made by Hans Ongsitco
 
 int main(){
 	char input, halfbits[4]="";//stores an BiS encoded bit (ex. -1-1)
-	int last=-1, halfbitCounter=0;
+	int  halfbitCounter=0;
 	
 	do{
-		input=fgetc(stdin);
-		if(halfbitCounter<4){//reads input until 2 half bits are received and stored in halfbits
+		input=fgetc(stdin);//gets a character from the input stream
+		if(halfbitCounter<4){//reads input until 2 half bits are received and stores it in variable halfbits
 			if(input=='-' || input=='+'|| input=='1'){
 				halfbits[halfbitCounter]=input;
 				halfbitCounter++;
 			}
 		}
-		if(halfbitCounter==4){//cdecodes the halfbit back into the original bit
+		if(halfbitCounter==4){//decodes two halfbit back into the original bit
 			if(strcmp(halfbits, "+1-1")==0 || strcmp(halfbits, "-1+1")==0){
 				printf("0");
 			}
@@ -29,7 +29,7 @@ int main(){
 			strcpy(halfbits,"");
 			halfbitCounter=0;
 		}	
-	}while(input!=EOF);
+	}while(input!=EOF);//loops until end of file
 
 	return 0;
 }
