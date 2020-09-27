@@ -8,8 +8,8 @@ Made by Hans Ongsitco
 
 
 int main(){
-	char input='0';
-	int last=-1;//previous value of Encoded Biphase-S, initialized as 0
+	char input;
+	int last=-1;//previous value of Encoded Biphase-S, initialized as -1
 	
 	//Bi-phase-S encoding algorithm
 	do{
@@ -35,7 +35,7 @@ int main(){
 				last=-1;
 			}
 		}
-	}while(input!=EOF);
+	}while(input!=EOF);//loops until end of file
 
 	return 0;
 }
